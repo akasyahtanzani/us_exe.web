@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Your Memories ♡</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- CSS utama -->
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+
+    <!-- CSS khusus Your Section -->
+    <link
+        rel="stylesheet"
+        href="./your_section.css"
+    >
+
+</head>
+
+<body>
+
+
+    <div id="stars-container"></div>
+
+
+    <main class="your-page">
+
+
+        <!-- TOP -->
+
+        <div class="your-page-top">
+
+            <a
+                href="index.html"
+                class="your-back-button"
+            >
+                ← back
+            </a>
+
+
+            <span class="your-page-mark">
+                ♡
+            </span>
+
+        </div>
+
+
+
+        <!-- HEADER -->
+
+        <section class="your-page-heading">
+
+            <div>
+
+                <p class="your-page-label">
+                    YOUR SPACE
+                </p>
+
+
+                <h1>
+                    Your <span>Memories.</span>
+                </h1>
+
+            </div>
+
+
+            <button
+                class="add-memory-button"
+                id="addMemoryButton"
+                type="button"
+            >
+                + Add memory
+            </button>
+
+        </section>
+
+
+
+        <!-- =====================================
+             CREATE / UPDATE FORM
+        ====================================== -->
+
+        <section
+            class="memory-form"
+            id="memoryForm"
+        >
+
+            <div class="memory-form-box">
+
+
+                <!-- PHOTO -->
+
+                <label class="memory-upload">
+
+                    <input
+                        type="file"
+                        id="memoryFile"
+                        accept="image/*"
+                    >
+
+
+                    <div
+                        class="memory-upload-content"
+                        id="memoryUploadContent"
+                    >
+
+                        <div class="memory-upload-icon">
+                            ♡
+                        </div>
+
+
+                        <p>
+                            Choose photo
+                        </p>
+
+
+                        <small>
+                            JPG · PNG · WEBP
+                        </small>
+
+                    </div>
+
+
+                    <img
+                        class="memory-preview"
+                        id="memoryPreview"
+                        src=""
+                        alt="Preview"
+                    >
+
+                </label>
+
+
+
+                <!-- FIELDS -->
+
+                <div class="memory-fields">
+
+
+                    <div class="memory-field">
+
+                        <label for="memoryDate">
+                            Date
+                        </label>
+
+
+                        <input
+                            type="date"
+                            id="memoryDate"
+                        >
+
+                    </div>
+
+
+                    <div class="memory-field">
+
+                        <label for="memoryCaption">
+                            Caption
+                        </label>
+
+
+                        <textarea
+                            id="memoryCaption"
+                            placeholder="a little note..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <p
+                        class="memory-error"
+                        id="memoryError"
+                    ></p>
+
+
+                    <div class="memory-form-actions">
+
+                        <button
+                            class="memory-save-button"
+                            id="memorySaveButton"
+                            type="button"
+                        >
+                            Save ♡
+                        </button>
+
+
+                        <button
+                            class="memory-cancel-button"
+                            id="memoryCancelButton"
+                            type="button"
+                        >
+                            Cancel
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SAVED MEMORIES
+        ====================================== -->
+
+        <section class="saved-memories">
+
+
+            <div class="saved-memories-title">
+
+                <h2>
+
+                    Memories
+
+                    <span id="savedCount">
+                        0
+                    </span>
+
+                </h2>
+
+
+                <div class="tiny-heart">
+                    ♡
+                </div>
+
+            </div>
+
+
+
+            <!-- EMPTY -->
+
+            <div
+                class="empty-memories"
+                id="emptyMemories"
+            >
+
+                <div class="empty-memory-icon">
+                    ♡
+                </div>
+
+
+                <p>
+                    No memories yet.
+                </p>
+
+            </div>
+
+
+
+            <!-- CRUD OUTPUT -->
+
+            <div
+                class="saved-memory-grid"
+                id="savedMemoryGrid"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer class="your-page-footer">
+
+            <span>
+                our little universe ♡
+            </span>
+
+
+            <span>
+                tanzani akasyah
+            </span>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- THEME -->
+
+    <button
+        class="theme-button"
+        id="themeBtn"
+        type="button"
+        aria-label="Change theme"
+    >
+        ♡
+    </button>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

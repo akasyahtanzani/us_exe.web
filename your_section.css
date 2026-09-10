@@ -1,0 +1,1560 @@
+/* =========================================================
+   YOUR-SECTION.CSS
+   KHUSUS CRUD YOUR MEMORIES
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.your-page {
+
+    position:
+        relative;
+
+    width:
+        min(1050px,88%);
+
+    margin:
+        0 auto;
+
+    padding:
+        35px 0
+        70px;
+}
+
+
+/* =========================================================
+   TOP
+========================================================= */
+
+.your-page-top {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        65px;
+}
+
+.your-back-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
+    color:
+        var(--muted);
+
+    text-decoration:
+        none;
+
+    font-size:
+        11px;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+.your-back-button:hover {
+
+    color:
+        var(--text);
+
+    transform:
+        translateX(-3px);
+}
+
+.your-page-mark {
+
+    color:
+        var(--pink);
+
+    font-size:
+        18px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.your-page-heading {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        25px;
+
+    margin-bottom:
+        38px;
+}
+
+.your-page-label {
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--pink);
+
+    font-size:
+        9px;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        3px;
+}
+
+.your-page-heading h1 {
+
+    margin:
+        0;
+
+    font-family:
+        "DM Serif Display",
+        serif;
+
+    font-size:
+        clamp(46px,6vw,72px);
+
+    line-height:
+        .95;
+
+    font-weight:
+        400;
+
+    letter-spacing:
+        -1px;
+}
+
+.your-page-heading h1 span {
+
+    color:
+        var(--pink-soft);
+
+    font-style:
+        italic;
+}
+
+
+/* =========================================================
+   ADD BUTTON
+========================================================= */
+
+.add-memory-button {
+
+    flex-shrink:
+        0;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        12px 18px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    color:
+        var(--text);
+
+    font-size:
+        10px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        color .3s ease,
+        background .3s ease;
+}
+
+.add-memory-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(214,143,167,.5);
+
+    color:
+        var(--pink-soft);
+
+    background:
+        rgba(214,143,167,.06);
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.memory-form {
+
+    display:
+        none;
+
+    margin-bottom:
+        55px;
+}
+
+.memory-form.show {
+
+    display:
+        block;
+}
+
+.memory-form-box {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        260px 1fr;
+
+    gap:
+        28px;
+
+    padding:
+        25px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        22px;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(214,143,167,.05),
+            transparent 35%
+        ),
+        rgba(255,255,255,.018);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.12);
+}
+
+body.light-mode
+.memory-form-box {
+
+    background:
+        rgba(255,250,252,.82);
+
+    box-shadow:
+        0 15px 40px
+        rgba(90,60,75,.07);
+}
+
+
+/* =========================================================
+   UPLOAD
+========================================================= */
+
+.memory-upload {
+
+    position:
+        relative;
+
+    min-height:
+        270px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    overflow:
+        hidden;
+
+    border:
+        1px dashed
+        rgba(214,143,167,.32);
+
+    border-radius:
+        17px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(214,143,167,.06),
+            transparent 65%
+        );
+
+    cursor:
+        pointer;
+
+    transition:
+        border-color .3s ease,
+        background .3s ease,
+        transform .3s ease;
+}
+
+.memory-upload:hover {
+
+    border-color:
+        rgba(214,143,167,.58);
+
+    transform:
+        translateY(-2px);
+}
+
+.memory-upload input {
+
+    display:
+        none;
+}
+
+.memory-upload-content {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    text-align:
+        center;
+}
+
+.memory-upload-icon {
+
+    width:
+        46px;
+
+    height:
+        46px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin:
+        0 auto
+        11px;
+
+    border:
+        1px solid
+        rgba(214,143,167,.25);
+
+    border-radius:
+        50%;
+
+    color:
+        var(--pink-soft);
+
+    background:
+        rgba(214,143,167,.04);
+
+    font-size:
+        18px;
+}
+
+.memory-upload-content p {
+
+    margin-bottom:
+        5px;
+
+    color:
+        var(--text);
+
+    font-size:
+        11px;
+}
+
+.memory-upload-content small {
+
+    color:
+        var(--muted);
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        .8px;
+}
+
+
+/* =========================================================
+   PREVIEW
+========================================================= */
+
+.memory-preview {
+
+    display:
+        none;
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    z-index:
+        3;
+}
+
+
+/* =========================================================
+   FIELDS
+========================================================= */
+
+.memory-fields {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    gap:
+        16px;
+}
+
+.memory-field {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        7px;
+}
+
+.memory-field label {
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        1px;
+}
+
+.memory-field input,
+.memory-field textarea {
+
+    width:
+        100%;
+
+    padding:
+        12px 13px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        12px;
+
+    outline:
+        none;
+
+    background:
+        rgba(255,255,255,.02);
+
+    color:
+        var(--text);
+
+    font-size:
+        11px;
+
+    transition:
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+body.light-mode
+.memory-field input,
+body.light-mode
+.memory-field textarea {
+
+    background:
+        rgba(255,255,255,.7);
+}
+
+.memory-field input {
+
+    height:
+        42px;
+}
+
+.memory-field textarea {
+
+    min-height:
+        100px;
+
+    resize:
+        vertical;
+
+    line-height:
+        1.6;
+}
+
+.memory-field input::placeholder,
+.memory-field textarea::placeholder {
+
+    color:
+        var(--muted);
+}
+
+.memory-field input:focus,
+.memory-field textarea:focus {
+
+    border-color:
+        rgba(214,143,167,.5);
+
+    background:
+        rgba(214,143,167,.025);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(214,143,167,.04);
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.memory-error {
+
+    min-height:
+        13px;
+
+    margin:
+        0;
+
+    color:
+        var(--pink-soft);
+
+    font-size:
+        9px;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.memory-form-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+}
+
+.memory-save-button,
+.memory-cancel-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        10px 16px;
+
+    border-radius:
+        999px;
+
+    font-size:
+        9px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease;
+}
+
+.memory-save-button {
+
+    border:
+        1px solid
+        rgba(214,143,167,.35);
+
+    color:
+        var(--pink-soft);
+
+    background:
+        rgba(214,143,167,.08);
+}
+
+.memory-save-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(214,143,167,.14);
+}
+
+.memory-cancel-button {
+
+    border:
+        1px solid
+        var(--line);
+
+    color:
+        var(--muted);
+
+    background:
+        transparent;
+}
+
+.memory-cancel-button:hover {
+
+    color:
+        var(--text);
+}
+
+
+/* =========================================================
+   SAVED TITLE
+========================================================= */
+
+.saved-memories {
+
+    margin-top:
+        20px;
+}
+
+.saved-memories-title {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        25px;
+}
+
+.saved-memories-title h2 {
+
+    margin:
+        0;
+
+    font-family:
+        "DM Serif Display",
+        serif;
+
+    font-size:
+        38px;
+
+    line-height:
+        1;
+
+    font-weight:
+        400;
+}
+
+.saved-memories-title h2 span {
+
+    position:
+        relative;
+
+    top:
+        -9px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        22px;
+
+    height:
+        22px;
+
+    margin-left:
+        6px;
+
+    padding:
+        0 6px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        999px;
+
+    color:
+        var(--pink);
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size:
+        8px;
+}
+
+.tiny-heart {
+
+    color:
+        var(--pink-soft);
+
+    font-size:
+        20px;
+
+    animation:
+        tinyHeartFloat
+        3s
+        ease-in-out
+        infinite;
+}
+
+@keyframes tinyHeartFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-4px);
+    }
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty-memories {
+
+    position:
+        relative;
+
+    min-height:
+        260px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        22px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(214,143,167,.05),
+            transparent 60%
+        );
+}
+
+body.light-mode
+.empty-memories {
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(214,143,167,.10),
+            transparent 60%
+        ),
+        rgba(255,250,252,.76);
+
+    box-shadow:
+        0 15px 40px
+        rgba(90,60,75,.05);
+}
+
+.empty-memories::before,
+.empty-memories::after {
+
+    content:
+        "✦";
+
+    position:
+        absolute;
+
+    color:
+        rgba(214,143,167,.2);
+
+    font-size:
+        13px;
+}
+
+.empty-memories::before {
+
+    left:
+        27%;
+
+    top:
+        27%;
+}
+
+.empty-memories::after {
+
+    right:
+        27%;
+
+    bottom:
+        24%;
+
+    color:
+        rgba(156,143,194,.2);
+}
+
+.empty-memory-icon {
+
+    margin-bottom:
+        12px;
+
+    color:
+        var(--pink-soft);
+
+    font-size:
+        27px;
+
+    animation:
+        emptyMemoryFloat
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes emptyMemoryFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-6px);
+    }
+}
+
+.empty-memories p {
+
+    margin:
+        0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.saved-memory-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0,1fr)
+        );
+
+    gap:
+        18px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.saved-memory-card {
+
+    position:
+        relative;
+
+    padding:
+        8px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        18px;
+
+    background:
+        var(--card);
+
+    overflow:
+        hidden;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.saved-memory-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(214,143,167,.25);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0,0,0,.18);
+}
+
+
+/* image */
+
+.saved-memory-image {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    aspect-ratio:
+        1/1;
+
+    object-fit:
+        cover;
+
+    border-radius:
+        12px;
+
+    background:
+        var(--background-soft);
+
+    transition:
+        transform .45s ease;
+}
+
+.saved-memory-card:hover
+.saved-memory-image {
+
+    transform:
+        scale(1.015);
+}
+
+
+/* info */
+
+.saved-memory-info {
+
+    padding:
+        11px 4px 4px;
+}
+
+.saved-memory-date {
+
+    color:
+        var(--pink);
+
+    font-size:
+        8px;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        1px;
+}
+
+.saved-memory-caption {
+
+    margin-top:
+        6px;
+
+    color:
+        var(--text);
+
+    font-size:
+        10px;
+
+    line-height:
+        1.55;
+
+    overflow-wrap:
+        anywhere;
+}
+
+
+/* =========================================================
+   CRUD BUTTONS
+========================================================= */
+
+.saved-memory-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    margin-top:
+        10px;
+}
+
+.saved-memory-actions button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        7px 10px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:
+        999px;
+
+    background:
+        transparent;
+
+    color:
+        var(--muted);
+
+    font-size:
+        8px;
+
+    cursor:
+        pointer;
+
+    transition:
+        color .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        transform .25s ease;
+}
+
+.saved-memory-actions button:hover {
+
+    transform:
+        translateY(-1px);
+
+    border-color:
+        rgba(214,143,167,.4);
+
+    color:
+        var(--pink-soft);
+
+    background:
+        rgba(231, 228, 229, 0.04);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.your-page-footer {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    margin-top:
+        65px;
+
+    padding-top:
+        22px;
+
+    border-top:
+        1px solid
+        var(--line);
+
+    color:
+        var(--muted);
+
+    font-size:
+        8px;
+}
+
+
+/* =========================================================
+   ORNAMENTS
+========================================================= */
+
+.your-page::before {
+
+    content:
+        "✧";
+
+    position:
+        fixed;
+
+    top:
+        28%;
+
+    left:
+        5%;
+
+    color:
+        rgba(214,143,167,.22);
+
+    font-size:
+        17px;
+
+    pointer-events:
+        none;
+
+    animation:
+        pageSparkleOne
+        4s
+        ease-in-out
+        infinite;
+}
+
+.your-page::after {
+
+    content:
+        "♡";
+
+    position:
+        fixed;
+
+    right:
+        6%;
+
+    bottom:
+        25%;
+
+    color:
+        rgba(156,143,194,.22);
+
+    font-size:
+        22px;
+
+    pointer-events:
+        none;
+
+    animation:
+        pageSparkleTwo
+        4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes pageSparkleOne {
+
+    0%,
+    100% {
+
+        opacity:
+            .2;
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+
+        opacity:
+            .7;
+
+        transform:
+            translateY(-7px)
+            rotate(10deg);
+    }
+}
+
+@keyframes pageSparkleTwo {
+
+    0%,
+    100% {
+
+        opacity:
+            .2;
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+
+        opacity:
+            .6;
+
+        transform:
+            translateY(-8px)
+            rotate(-8deg);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width:800px) {
+
+    .your-page {
+        width:
+            88%;
+    }
+
+    .your-page-top {
+        margin-bottom:
+            50px;
+    }
+
+    .your-page-heading {
+        gap:
+            18px;
+    }
+
+    .memory-form-box {
+
+        grid-template-columns:
+            220px 1fr;
+
+        gap:
+            22px;
+    }
+
+    .memory-upload {
+        min-height:
+            250px;
+    }
+
+    .saved-memory-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:650px) {
+
+    .your-page {
+
+        padding-top:
+            25px;
+    }
+
+    .your-page-top {
+
+        margin-bottom:
+            45px;
+    }
+
+    .your-page-heading {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        margin-bottom:
+            30px;
+    }
+
+    .your-page-heading h1 {
+
+        font-size:
+            52px;
+    }
+
+    .add-memory-button {
+
+        width:
+            auto;
+    }
+
+    .memory-form-box {
+
+        grid-template-columns:
+            1fr;
+
+        padding:
+            18px;
+    }
+
+    .memory-upload {
+
+        min-height:
+            220px;
+    }
+
+    .memory-fields {
+
+        gap:
+            15px;
+    }
+
+    .saved-memories-title h2 {
+
+        font-size:
+            34px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width:480px) {
+
+    .your-page {
+
+        width:
+            88%;
+    }
+
+    .your-page-heading h1 {
+
+        font-size:
+            46px;
+    }
+
+    .your-page-label {
+
+        font-size:
+            8px;
+
+        letter-spacing:
+            2.5px;
+    }
+
+    .add-memory-button {
+
+        width:
+            100%;
+    }
+
+    .memory-form-box {
+
+        padding:
+            15px;
+
+        border-radius:
+            18px;
+    }
+
+    .memory-upload {
+
+        min-height:
+            200px;
+
+        border-radius:
+            15px;
+    }
+
+    .memory-field input,
+    .memory-field textarea {
+
+        font-size:
+            15px;
+    }
+
+    .memory-form-actions {
+
+        width:
+            100%;
+    }
+
+    .memory-save-button,
+    .memory-cancel-button {
+
+        flex:
+            1;
+    }
+
+    .saved-memories-title {
+
+        margin-bottom:
+            18px;
+    }
+
+    .saved-memories-title h2 {
+
+        font-size:
+            30px;
+    }
+
+    .tiny-heart {
+
+        font-size:
+            17px;
+    }
+
+    .saved-memory-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .saved-memory-card {
+
+        border-radius:
+            16px;
+    }
+
+    .your-page-footer {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            7px;
+    }
+    .form-heart,
+.saved-heart,
+.empty-heart,
+.button-heart,
+.back-arrow {
+    color: var(--pink) !important;
+}
+
+}
