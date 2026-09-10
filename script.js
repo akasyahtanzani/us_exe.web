@@ -767,3 +767,122 @@ navbarLogo?.addEventListener(
 
     }
 );
+
+/* =========================================================
+   ADD MEMORY FEATURE
+========================================================= */
+
+const addMemoryButton = document.getElementById("addMemoryButton");
+const memoryForm = document.getElementById("memoryForm");
+const memoryCancelButton = document.getElementById("memoryCancelButton");
+const memorySaveButton = document.getElementById("memorySaveButton");
+const memoryFile = document.getElementById("memoryFile");
+const memoryPreview = document.getElementById("memoryPreview");
+const memoryUploadContent = document.getElementById("memoryUploadContent");
+const memoryDate = document.getElementById("memoryDate");
+const memoryCaption = document.getElementById("memoryCaption");
+const memoryError = document.getElementById("memoryError");
+const savedMemoryGrid = document.getElementById("savedMemoryGrid");
+const emptyMemories = document.getElementById("emptyMemories");
+const savedCount = document.getElementById("savedCount");
+
+let memoriesData = JSON.parse(localStorage.getItem("ourMemoriesList")) || [];
+
+function renderMemories() {
+    if (!savedMemoryGrid) return;
+    savedMemoryGrid.innerHTML = "";
+    
+    if (memoriesData.length === 0) {
+        emptyMemories?.style.setProperty("display", "block");
+        if (savedCount) savedCount.textContent = "0";
+        return;
+    }
+
+    emptyMemories?.style.setProperty("display", "none");
+    if (savedCount) savedCount.textContent = memoriesData.length;
+
+    memoriesData.forEach((memory, index) => {
+        const card = document.createElement("div");
+        card.className = "saved-memory-card";
+        card.innerHTML = `
+            <img src="${memory.image}" alt="Memory">
+            <div class="saved-memory-info">
+                <small>${memory.date || ""}</small>
+                <p>${memory.caption || ""}</p>
+                <button class="delete-memory-btn" data-index="${index}">Delete</button>
+            </div>
+        `;
+        savedMemoryGrid.appendChild(card);
+    });
+
+    document.querySelectorAll(".delete-memory-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const idx = e.target.getAttribute("data-index");
+            memoriesData.splice(idx, 1);
+            localStorage.setItem("ourMemoriesList", JSON.stringify(memoriesData));
+            renderMemories();
+        });
+    });
+}
+
+renderMemories();
+
+addMemoryButton?.addEventListener("click", () => {
+    memoryForm?.classList.toggle("show");
+});
+
+memoryCancelButton?.addEventListener("click", () => {
+    memoryForm?.classList.remove("show");
+    clearForm();
+});
+
+memoryFile?.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(uploadEvent) {
+            if (memoryPreview) {
+                memoryPreview.src = uploadEvent.target.result;
+                memoryPreview.style.display = "block";
+            }
+            if (memoryUploadContent) {
+                memoryUploadContent.style.display = "none";
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+memorySaveButton?.addEventListener("click", () => {
+    const imageSrc = memoryPreview?.src;
+    const dateVal = memoryDate?.value;
+    const captionVal = memoryCaption?.value;
+
+    if (!imageSrc || imageSrc === "") {
+        if (memoryError) memoryError.textContent = "Please choose a photo first ♡";
+        return;
+    }
+
+    memoriesData.unshift({
+        image: imageSrc,
+        date: dateVal,
+        caption: captionVal
+    });
+
+    localStorage.setItem("ourMemoriesList", JSON.stringify(memoriesData));
+    renderMemories();
+    memoryForm?.classList.remove("show");
+    clearForm();
+});
+
+function clearForm() {
+    if (memoryFile) memoryFile.value = "";
+    if (memoryPreview) {
+        memoryPreview.src = "";
+        memoryPreview.style.display = "none";
+    }
+    if (memoryUploadContent) memoryUploadContent.style.display = "block";
+    if (memoryDate) memoryDate.value = "";
+    if (memoryCaption) memoryCaption.value = "";
+    if (memoryError) memoryError.textContent = "";
+}
